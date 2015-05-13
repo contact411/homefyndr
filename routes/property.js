@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET userlist. */
-router.get('/userlist', function(req, res) {
+router.get('/properties', function(req, res) {
     var db = req.db;
-    db.collection('userlist').find().toArray(function (err, items) {
+    db.collection('properties').find().toArray(function (err, items) {
         res.json(items);
     });
 });
