@@ -9,6 +9,7 @@ router.get('/properties', function(req, res) {
     });
 });
 
+/* GET individual properties by _id */
 router.get('/properties/id/:id', function(req, res) {
     var db = req.db;
     var ObjectID = require('mongoskin').ObjectID;
