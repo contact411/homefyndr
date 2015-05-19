@@ -9,4 +9,21 @@ router.get('/properties', function(req, res) {
     });
 });
 
+router.get('/properties/id/:id', function(req, res) {
+    var db = req.db;
+    var ObjectID = require('mongoskin').ObjectID;
+    var propID = req.params.id;
+    db.collection('properties').findOne({_id: ObjectID.createFromHexString(propID)}, function (err, result) {
+        if (err) {
+          console.log(err);
+        } else if (result) {
+          console.log('Found: ', result);
+          res.json(result);          
+        } else {
+          console.log('Property not found!');
+        };
+    });
+});
+
+
 module.exports = router;
